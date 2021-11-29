@@ -1,0 +1,26 @@
+.login-main-div{
+    /* margin-top: 100px; */
+   text-align: -webkit-center;
+}
+#email_element.label {
+    color: grey;
+    align-items: flex-start;
+    margin-right: 100px;
+}
+.login_button_div{
+    margin-top:15px;
+}
+.background{
+    width:100%;
+    position: relative;
+}
+.textfield-div-login{
+    margin-top: -650px;
+    position: relative;
+    text-align: -webkit-center;
+    background-color: white;
+    width: 45%;
+    border-radius: 10px;
+    padding-top:20px;
+    padding-bottom:30px;
+}

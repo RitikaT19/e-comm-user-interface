@@ -1,0 +1,10 @@
+.display-category-container {
+  display: flex;
+  text-decoration: none;
+  justify-content: space-evenly;
+  margin-top: -10px;
+}
+#display-category-name{
+    text-decoration: none;
+    cursor: pointer;
+}

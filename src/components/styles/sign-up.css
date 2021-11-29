@@ -1,0 +1,31 @@
+.sign-up-main-div{
+    /* margin-top: 50px; */
+   text-align: -webkit-center;
+}
+#email_element.label {
+    color: grey;
+    align-items: flex-start;
+    margin-right: 100px;
+}
+.sign_up_button_div{
+    margin-top:15px;
+}
+.sign-in-error{
+    color: red;
+    font-style: italic;
+}
+.sign-in-success{
+    color: green;
+    font-style: italic;
+}
+.textfield-div-sign-up{
+    margin-top: -700px;
+    position: relative;
+    text-align: -webkit-center;
+    background-color: white;
+    width: 45%;
+    border-radius: 10px;
+    padding-top:20px;
+    padding-bottom:30px;
+  
+}

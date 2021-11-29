@@ -1,0 +1,24 @@
+.header-main-div {
+  background-color: rgb(5, 5, 71);
+  color: white;
+  display: flex;
+  height: 70px;
+  align-items: center;
+}
+.header-title {
+  margin-left: 50px;
+  font-size: x-large;
+}
+.active_class {
+  color: grey;
+  margin-left: 40px;
+  text-decoration: none;
+}
+.dashboard {
+  color: white;
+  text-decoration: none;
+}
+#header_buttons {
+  margin-left: 850px;
+  display: inline-block;
+}

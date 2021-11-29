@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./App.css";
+import { HomePage } from "./components/HomePage";
+import { LoginUser } from "./components/Login";
+import { ProductListPage } from "./components/ProductListPage";
+import { SignUpUser } from "./components/Sign-up";
+import { CategoryProvider } from "./context/Category";
+import { LoadingContextProvider } from "./context/Loading";
+import { ProductProvider } from "./context/Product";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <LoadingContextProvider>
+        <CategoryProvider>
+          <ProductProvider>
+            <Router>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/category/:slug" component={ProductListPage} />
+              <Route exact path="/sign-up" component={SignUpUser} />
+              <Route exact path="/login" component={LoginUser} />
+            </Router>
+          </ProductProvider>
+        </CategoryProvider>
+      </LoadingContextProvider>
+    </>
   );
 }
 
