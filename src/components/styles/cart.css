@@ -1,0 +1,10 @@
+.cart-main-div{
+    width: 200px;
+    margin-left: 30px;
+    display: block;
+    margin-top: 20px;
+    box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
+    background-color: rgb(255, 255, 255);
+    padding: 5px 15px 5px 15px;
+    border-radius: 8px;
+}

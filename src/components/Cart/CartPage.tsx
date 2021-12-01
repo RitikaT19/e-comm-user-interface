@@ -1,24 +1,24 @@
 import React from "react";
-
+import "../styles/cart.css"
+import mobile from "../../assets/icons/mobile.jpeg";
 interface Props {
   cartItems: any;
 }
 export const CartPage: React.FC<Props> = ({ cartItems }) => {
-
-  console.log("from cart", cartItems)
   return (
     <div className="cart-main-container">
-      {cartItems &&
-        cartItems.length >= 0 &&
-        cartItems[0]?.map((items: any, index: number) => (
-          <div className="cart-main-div">
-            <div key={index}>
-                <p id = "product-name">{items.data}</p>
-                <p id = "product-price">{items.price}</p>
-                <p id = "product-quantity">{items.quantity}</p>
-            </div>
+      {cartItems && (
+        <div className="cart-main-div">
+          <div key={"index"}>
+            {/* product image */}
+          <img className="image" src={mobile} alt="mobile" />
+            {/* for printing name of the product */}
+            <p id="product-name">{cartItems.name}</p>
+            {/* for printing price of the product */}
+            <p id="product-price"><b>Price: </b>Rs.{cartItems.price}</p>
           </div>
-        ))}
+        </div>
+      )}
     </div>
   );
 };

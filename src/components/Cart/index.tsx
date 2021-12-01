@@ -8,23 +8,22 @@ import { LayoutHeader } from "../common/LayoutHeader/LayoutHeader";
 import { CartPage } from "./CartPage";
 
 export const Cart: React.FC = () => {
-  const { id }: any = useParams();
   const { state: cartState, dispatch: cartDispatch } = useContext(CartContext);
   const { dispatch: loadingDispatch } = useContext(LoadingContext);
 
+  // function for fetching cart
   const fetchCart = async () => {
-    await getCart()(cartDispatch, loadingDispatch).then(() => {
-      console.log(cartState.addToCartSuccess, "from index");
-    });
+    await getCart()(cartDispatch, loadingDispatch)
   };
+
   useEffect(() => {
     fetchCart();
   }, []);
+
   return (
     <div>
       <LayoutHeader />
-      <Button id="cart" value="Cart" handleClick={fetchCart} />
-      <CartPage cartItems = {cartState.addToCartSuccess}/>
+      <CartPage cartItems = {cartState.fetchCartSuccess}/>
     </div>
   );
 };

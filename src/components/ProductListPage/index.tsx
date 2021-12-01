@@ -34,7 +34,7 @@ export const ProductListPage: React.FC = () => {
       alert("Product added to the cart!")
     })
   }
-  console.log(id, "slugName")
+ 
   return (
     <>
     {console.log(productState.fetchProductSuccess,"product detailss")}

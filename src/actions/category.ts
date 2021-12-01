@@ -20,9 +20,6 @@ export const getCategory =
         type: FETCH_CATEGORY,
         payload: result.data.data,
       });
-      console.log(result, "result")
-      console.log("from axios", result.data.data);
-      console.log("from axios", typeof result.data.data);
     } catch (error: any) {
       stopLoading(loadingDispatch);
       dispatch({
