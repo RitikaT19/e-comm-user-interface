@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Button from "../common/Button/Button";
-import {Textfield} from "../common/Textfield/Textfield"
+import { Textfield } from "../common/Textfield/Textfield";
 import "../styles/login.css";
-import background from "../../assets/icons/background.jpg"
+import background from "../../assets/icons/background.jpg";
 
 interface Props {
   handleLoginButton: any;
@@ -10,26 +10,37 @@ interface Props {
   successMessage: any;
 }
 
-export const Login: React.FC<Props> = ({ handleLoginButton, errorMessage, successMessage }) => {
+export const Login: React.FC<Props> = ({
+  handleLoginButton,
+  errorMessage,
+  successMessage,
+}) => {
+  // stores email
   const [email, setEmail] = useState<string>("");
+  // stores password
   const [password, setPassword] = useState<string>("");
   // stores empty field error
   const [showEmptyFieldError, setShowEmptyFieldError] = useState(false);
 
+  // function for when login button is clicked
   const clickLoginButton = async () => {
+    // if email or password is not provided, throw error
     if (!(email || password)) {
       setShowEmptyFieldError(true);
     } else {
       await handleLoginButton(email, password);
-      console.log("from login",email, password)
     }
   };
 
   return (
     <div className="login-main-div">
-       <img className ="background" src = {background} alt = "background"/>
+      <img className="background" src={background} alt="background" />
       <div className="textfield-div-login">
-        <p><b>Welcome back! Login!</b></p>
+        {/* Login heading */}
+        <p>
+          <b>Welcome back! Login!</b>
+        </p>
+        {/* Textfield for email */}
         <Textfield
           label="Email"
           placeholder="Enter email address"
@@ -38,6 +49,7 @@ export const Login: React.FC<Props> = ({ handleLoginButton, errorMessage, succes
           value={email}
         />
 
+        {/* Textfield for password */}
         <Textfield
           label="Password"
           type="password"
@@ -46,6 +58,7 @@ export const Login: React.FC<Props> = ({ handleLoginButton, errorMessage, succes
           onChange={(e: any) => setPassword(e.target.value)}
           value={password}
         />
+        {/* error and success messages */}
         {errorMessage ? (
           <p className="sign-in-error">{errorMessage}</p>
         ) : successMessage ? (
@@ -56,6 +69,7 @@ export const Login: React.FC<Props> = ({ handleLoginButton, errorMessage, succes
           )
         )}
         <div className="login_button_div">
+          {/* Button for login */}
           <Button
             value="Login"
             id="login_button"

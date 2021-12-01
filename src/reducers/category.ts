@@ -1,5 +1,7 @@
+// importing types of action
 import { FETCH_CATEGORY, FETCH_CATEGORY_ERROR } from "../actions/Types";
 
+// exporting actions
 export type Actions =
   | {
       type: typeof FETCH_CATEGORY;
@@ -9,14 +11,15 @@ export type Actions =
       type: typeof FETCH_CATEGORY_ERROR;
       payload: any;
     };
-
+//CartInterface to define the State type for the state of the reducer
 interface CategoryInterface {
   error: string | null;
   fetchCategorySuccess: any;
   fetchCategoryError: string | null;
 }
+//State type for defining the state of the reducer
 export type State = CategoryInterface;
-
+//Initial state of the reducer of type State
 export const initialState: State = {
   error: null,
   fetchCategoryError: null,
@@ -24,7 +27,7 @@ export const initialState: State = {
 };
 
 export const Category = (state: State = initialState, action: Actions) => {
-  console.log(action.type, "action");
+  //switch between action.type
   switch (action.type) {
     case FETCH_CATEGORY:
       return {

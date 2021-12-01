@@ -1,12 +1,14 @@
 import React from "react";
 import "../styles/cart.css"
-import mobile from "../../assets/icons/mobile.jpeg";
+// importing mobile image
+import mobile from "../../assets/icons/mobile.jpeg"; 
 interface Props {
   cartItems: any;
 }
 export const CartPage: React.FC<Props> = ({ cartItems }) => {
   return (
     <div className="cart-main-container">
+      {/* checking if cartItem exists */}
       {cartItems && (
         <div className="cart-main-div">
           <div key={"index"}>

@@ -10,26 +10,32 @@ interface Props {
   history?: History;
 }
 export const LoginUser: React.FC<Props> = (props) => {
+  // login context
+  // renamed state and dispatch property as loginState and loginDispatch respectively
   const { state: loginState, dispatch: loginDispatch } =
     useContext(LoginContext);
+  // loading context
   const { dispatch: loadingDispatch } = useContext(LoadingContext);
 
+  // function for user log in
   const clickLoginButton = async (email: string, password: string) => {
     await signIn(
       email,
       password,
       props?.history
     )(loginDispatch, loadingDispatch).then(() => {
+      // storing user email and password in local storage
       localStorage.setItem("login", JSON.stringify({ email, password }));
-      console.log("details", email, password);
     });
   };
   return (
     <div>
-      <LayoutHeader/>
+      <LayoutHeader />
       <Login
         handleLoginButton={clickLoginButton}
+        // getting error message
         errorMessage={loginState.error}
+        // getting success message
         successMessage={loginState.loginSuccess}
       />
     </div>

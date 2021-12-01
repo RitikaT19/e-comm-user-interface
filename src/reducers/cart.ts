@@ -1,3 +1,4 @@
+// importing types of action
 import {
   ADD_TO_CART,
   ADD_TO_CART_ERROR,
@@ -5,6 +6,7 @@ import {
   FETCH_CART_ERROR,
 } from "../actions/Types";
 
+// exporting types of actions
 export type Actions =
   | {
       type: typeof ADD_TO_CART;
@@ -22,15 +24,16 @@ export type Actions =
       type: typeof FETCH_CART_ERROR;
       payload: any;
     };
-
+//CartInterface to define the State type for the state of the reducer
 interface CartInterface {
   addToCartSuccess: string | null;
   addToCartError: string | null;
   fetchCartSuccess: any;
   fetchCartError: string | null;
 }
-
+//State type for defining the state of the reducer
 export type State = CartInterface;
+//Initial state of the reducer of type State
 export const initialState: State = {
   addToCartSuccess: null,
   addToCartError: null,
@@ -39,7 +42,7 @@ export const initialState: State = {
 };
 
 export const Cart = (state: State = initialState, action: Actions) => {
-  console.log(action, "reducers")
+  //switch between action.type
   switch (action.type) {
     case ADD_TO_CART:
       return {
