@@ -5,14 +5,18 @@ import { SignUpContext } from "../../context/SignUp";
 import { addUser, clearErrors } from "../../actions/signUp";
 import {Header} from "../common/Header/Header"
 import { LayoutHeader } from "../common/LayoutHeader/LayoutHeader";
+import { History } from "history";
 
-export const SignUpUser: React.FC = () => {
+interface Props {
+  history?: History;
+}
+export const SignUpUser: React.FC<Props> = (props) => {
   const { state: signUpState, dispatch: signUpDispatch } =
     useContext(SignUpContext);
   const { dispatch: loadingDispatch } = useContext(LoadingContext);
 
   const clickSignUpButton = async (data: any) => {
-    await addUser(data)(signUpDispatch, loadingDispatch).then(() => {
+    await addUser(data, props?.history)(signUpDispatch, loadingDispatch).then(() => {
       console.log("add a new user", data);
     });
     // clearErrors(signUpDispatch)

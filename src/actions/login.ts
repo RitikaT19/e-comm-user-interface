@@ -30,7 +30,7 @@ export const signIn =
       });
       console.log(token, "from axios")
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      history?.push("/");
+      history?.push("/category/61974a3625fde0c069255ed5");
     } catch (error: any) {
       stopLoading(loadingDispatch);
       dispatch({

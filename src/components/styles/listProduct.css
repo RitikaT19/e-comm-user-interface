@@ -5,9 +5,8 @@
   margin-top: 20px;
   box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
   background-color: rgb(255, 255, 255);
-  padding: 15px 15px 15px 15px;
+  padding: 5px 15px 5px 15px;
   border-radius: 8px;
-  cursor: pointer;
 }
 .product-main-container {
   display: flex;
@@ -29,7 +28,14 @@
 }
 .image {
   margin-left: 65px;
-  width: 60px;
+  width: 45px;
   justify-self: center;
 }
+#buy-now-button_element{
+  margin-left: 25px;
 
+}
+img.cart-icon {
+  margin-left: 170px;
+  cursor: pointer;
+}

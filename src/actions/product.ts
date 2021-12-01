@@ -6,14 +6,14 @@ import { API_URL } from "./serverConnection";
 import { Actions } from "../reducers/product";
 import React from "react";
 
-export const getProductBySlug = (slug: string) => 
+export const getProductById = (id: string) => 
 async (
     dispatch: React.Dispatch<Actions>,
     loadingDispatch: React.Dispatch<LoadingActions>
 )=>{
     try{
         startLoading(loadingDispatch)
-        const result = await axios.get(`${API_URL}/product/${slug}`)
+        const result = await axios.get(`${API_URL}/product/${id}`)
         dispatch({
             type: FETCH_PRODUCT,
             payload: result.data.data

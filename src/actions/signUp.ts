@@ -5,9 +5,10 @@ import axios from "axios";
 import { API_URL } from "./serverConnection";
 import { Actions } from "../reducers/sign-up";
 import React from "react";
+import { History } from "history";
 
 export const addUser =
-  (data: any) =>
+  (data: any, history: History | undefined) =>
   async (
     dispatch: React.Dispatch<Actions>,
     loadingDispatch: React.Dispatch<LoadingActions>
@@ -20,6 +21,7 @@ export const addUser =
         type: SIGN_UP,
         payload: result.data.message,
       });
+      history?.push("/login");
     } catch (error: any) {
       stopLoading(loadingDispatch);
       dispatch({
